@@ -37,6 +37,13 @@
 			);
 			target = FBE814262F3A647D004C22F2 /* TennisKata */;
 		};
+		FBE8146E2F3A6F5D004C22F2 /* Exceptions for "TennisKata" folder in "TennisKataTests" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Domain/TennisGame.swift,
+			);
+			target = FBE8143C2F3A647E004C22F2 /* TennisKataTests */;
+		};
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -44,6 +51,7 @@
 			isa = PBXFileSystemSynchronizedRootGroup;
 			exceptions = (
 				FBE8144F2F3A647E004C22F2 /* Exceptions for "TennisKata" folder in "TennisKata" target */,
+				FBE8146E2F3A6F5D004C22F2 /* Exceptions for "TennisKata" folder in "TennisKataTests" target */,
 			);
 			path = TennisKata;
 			sourceTree = "<group>";
