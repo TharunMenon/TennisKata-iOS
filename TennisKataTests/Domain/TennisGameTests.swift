@@ -58,5 +58,19 @@ final class TennisGameTests: XCTestCase {
         XCTAssertEqual(game.getScore(), "Love 15")
         
     }
+    
+    //MARK:-Test5:Player1 scores twice
+    func testPlayer1ScoresTwice() throws{
+        //Given: A new tennis game
+        let game = TennisGame(player1:"Arjun",player2:"Anil")
+        
+        //When: Player2 scores a point
+        game.scorePlayer1()
+        game.scorePlayer1()
+        
+        //Then: Score should be "30 Love"
+        XCTAssertEqual(game.getScore(), "30 Love")
+        
+    }
 
 }
