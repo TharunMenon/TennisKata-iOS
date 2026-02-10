@@ -41,8 +41,21 @@ final class TennisGameTests: XCTestCase {
         //When: Player1 scores a point
         game.scorePlayer1()
         
-        //Then: Score should be "Fifteen Love"
+        //Then: Score should be "15 Love"
         XCTAssertEqual(game.getScore(), "15 Love")
+        
+    }
+    
+    //MARK:-Test4:Player2 scores first point
+    func testPlayer2ScoresFirstPoint() throws{
+        //Given: A new tennis game
+        let game = TennisGame(player1:"Arjun",player2:"Anil")
+        
+        //When: Player2 scores a point
+        game.scorePlayer2()
+        
+        //Then: Score should be "Love 15"
+        XCTAssertEqual(game.getScore(), "Love 15")
         
     }
 
