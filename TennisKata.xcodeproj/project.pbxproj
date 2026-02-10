@@ -41,6 +41,7 @@
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
 				Domain/TennisGame.swift,
+				Domain/TennisGameProtocol.swift,
 				Domain/TennisScore.swift,
 				Domain/TennisScoreFormatter.swift,
 				Presentation/TennisGameViewModel.swift,
