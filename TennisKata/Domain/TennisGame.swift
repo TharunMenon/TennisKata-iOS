@@ -37,6 +37,9 @@ class TennisGame {
         if player1Score == 0 && player2Score == 1 {
             return "Love 15"
         }
+        if player1Score == 2 && player2Score == 0 {
+            return "30 Love"
+        }
         
         //safety fallback
         return "Love All"
