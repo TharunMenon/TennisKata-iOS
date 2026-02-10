@@ -102,5 +102,24 @@ final class TennisGameTests: XCTestCase {
         XCTAssertEqual(game.getScore(), "Arjun wins the game")
         
     }
+    
+    //MARK:-Test8:Deuce scenario
+    func testDeuceScenario() throws{
+        //Given: A new tennis game
+        let game = TennisGame(player1:"Arjun",player2:"Anil")
+        
+        //When: Player1 scores 4 point
+        game.scorePlayer1()
+        game.scorePlayer1()
+        game.scorePlayer1()
+        game.scorePlayer2()
+        game.scorePlayer2()
+        game.scorePlayer2()
+        
+        //Then: Score should be "Deuce"
+        XCTAssertEqual(game.getScore(), "Deuce")
+        
+    }
+
 
 }
