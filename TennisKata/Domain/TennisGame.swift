@@ -12,4 +12,8 @@ class TennisGame {
     init(player1:String, player2:String){
         //Minimal implementation to accept params
     }
+    
+    func getScore() -> String {
+        return "Love All"
+    }
 }
