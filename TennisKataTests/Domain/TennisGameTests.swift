@@ -98,7 +98,7 @@ final class TennisGameTests: XCTestCase {
         game.scorePlayer1()
         game.scorePlayer1()
         
-        //Then: Score should be "30 Love"
+        //Then: player 1 wins
         XCTAssertEqual(game.getScore(), "Arjun wins the game")
         
     }
@@ -155,7 +155,7 @@ final class TennisGameTests: XCTestCase {
         game.scorePlayer1()
         game.scorePlayer1()
         
-        //Then: Player1 Advantage
+        //Then: Player1 wins
         XCTAssertEqual(game.getScore(), "Arjun wins the game")
         
     }
@@ -172,10 +172,10 @@ final class TennisGameTests: XCTestCase {
         game.scorePlayer2()
         game.scorePlayer2()
         game.scorePlayer2()
-        game.scorePlayer1()
+        game.scorePlayer1() 
         game.scorePlayer2()
         
-        //Then: Player1 Advantage
+        //Then: Should deuce again
         XCTAssertEqual(game.getScore(), "Deuce")
         
     }
