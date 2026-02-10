@@ -139,6 +139,46 @@ final class TennisGameTests: XCTestCase {
         XCTAssertEqual(game.getScore(), "Advantage Arjun")
         
     }
+    
+    //MARK:-Test10:Win from advantage
+    func testWinFromAdvantage() throws{
+        //Given: A new tennis game
+        let game = TennisGame(player1:"Arjun",player2:"Anil")
+        
+        //When: Player1 scores 4 point
+        game.scorePlayer1()
+        game.scorePlayer1()
+        game.scorePlayer1()
+        game.scorePlayer2()
+        game.scorePlayer2()
+        game.scorePlayer2()
+        game.scorePlayer1()
+        game.scorePlayer1()
+        
+        //Then: Player1 Advantage
+        XCTAssertEqual(game.getScore(), "Arjun wins the game")
+        
+    }
+    
+    //MARK:-Test11:Back to deuce from advantage
+    func testBackToDeuceFromAdvantage() throws{
+        //Given: A new tennis game
+        let game = TennisGame(player1:"Arjun",player2:"Anil")
+        
+        //When: Player1 scores 4 point
+        game.scorePlayer1()
+        game.scorePlayer1()
+        game.scorePlayer1()
+        game.scorePlayer2()
+        game.scorePlayer2()
+        game.scorePlayer2()
+        game.scorePlayer1()
+        game.scorePlayer2()
+        
+        //Then: Player1 Advantage
+        XCTAssertEqual(game.getScore(), "Deuce")
+        
+    }
 
 
 }
