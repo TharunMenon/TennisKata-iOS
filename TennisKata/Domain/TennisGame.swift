@@ -22,26 +22,40 @@ class TennisGame {
     }
     
     func scorePlayer2() {
-        player1Score += 1
+        player2Score += 1
     }
     
     
     func getScore() -> String {
-        //Handle specific cases we need to pass tests
-        if player1Score == 0 && player2Score == 0 {
-            return "Love All"
-        }
-        if player1Score == 1 && player2Score == 0 {
-            return "15 Love"
-        }
-        if player1Score == 0 && player2Score == 1 {
-            return "Love 15"
-        }
-        if player1Score == 2 && player2Score == 0 {
-            return "30 Love"
+        
+        //Handle equal scores
+        if player1Score == player2Score {
+            if player1Score == 0 {
+                return "Love All"
+            } else {
+                let scoreText = convertScore(player1Score)
+                return "\(scoreText) All"
+            }
         }
         
-        //safety fallback
-        return "Love All"
+        //Handle equal scores
+        let player1ScoreText = convertScore(player1Score)
+        let player2ScoreText = convertScore(player2Score)
+        return "\(player1ScoreText) \(player2ScoreText)"
+    }
+    
+    private func convertScore(_ score:Int) -> String {
+        switch score {
+        case 0:
+            return "Love"
+        case 1:
+            return "15"
+        case 2:
+            return "30"
+        case 3:
+            return "40"
+        default :
+            return "Love" //safety fallback
+        }
     }
 }
