@@ -11,10 +11,14 @@ class TennisGame {
     
     private var player1Score:Int = 0
     private var player2Score:Int = 0
+    private let player1Name:String
+    private let player2Name:String
    
     
     init(player1:String, player2:String){
         //Minimal implementation to accept params
+        self.player1Name = player1
+        self.player2Name = player2
     }
     
     func scorePlayer1() {
@@ -28,6 +32,14 @@ class TennisGame {
     
     func getScore() -> String {
         
+        //Check game winners first
+        if player1Score >= 4 && player1Score - player2Score >= 2 {
+            return "\(player1Name) wins the game"
+        }
+        if player2Score >= 4 && player2Score - player1Score >= 2 {
+            return "\(player2Name) wins the game"
+        }
+        
         //Handle equal scores
         if player1Score == player2Score {
             if player1Score == 0 {
@@ -38,7 +50,7 @@ class TennisGame {
             }
         }
         
-        //Handle equal scores
+        //Handle different scores
         let player1ScoreText = convertScore(player1Score)
         let player2ScoreText = convertScore(player2Score)
         return "\(player1ScoreText) \(player2ScoreText)"
