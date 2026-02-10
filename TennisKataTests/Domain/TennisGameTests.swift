@@ -41,9 +41,8 @@ final class TennisGameTests: XCTestCase {
         //When: Player1 scores a point
         game.scorePlayer1()
         
-        
         //Then: Score should be "Fifteen Love"
-        XCTAssertEqual(game.getScore(), "Love All")
+        XCTAssertEqual(game.getScore(), "15 Love")
         
     }
 
