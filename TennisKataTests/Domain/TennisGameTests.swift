@@ -21,7 +21,18 @@ final class TennisGameTests: XCTestCase {
         
     }
 
-    
+    //MARK:-Test2:To test inital score
+    func testInitialScore() throws{
+        //Given: A new tennis game
+        let game = TennisGame(player1:"Arjun",player2:"Anil")
+        
+        //When: Check score
+        let score = game.getScore()
+        
+        //Then: Score should be "Love All"
+        
+        XCTAssertEqual(score, "Love All")
+    }
 
     
 
