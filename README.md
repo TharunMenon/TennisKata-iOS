@@ -1,59 +1,50 @@
+# Tennis Kata – iOS (TDD & SOLID)
 
-# Tennis Kata – iOS (TDD + SOLID)
+This project implements the classic Tennis Kata using **Test-Driven Development (TDD)** and **SOLID principles**, with a strong focus on architecture and separation of concerns.
 
-This project implements the classic Tennis Kata using **Test-Driven Development (TDD)** and **SOLID principles**.
+The goal of this exercise was not UI, but rather to demonstrate:
 
-## 🎯 Goal
-- Focus on **Domain & ViewModel layers**
-- UI is intentionally minimal
-- Each change is tracked with **small, meaningful git commits**
+- Domain modeling
+- Testability
+- Clean code practices
+- Incremental development with meaningful commits
 
-## 🧪 Approach
-- Red → Green → Refactor
-- Clear separation of responsibilities
-- Business rules isolated from UI
+---
 
-## 🧱 Project Structure
+## 🎯 Scope
+
+The implementation supports:
+
+- Standard tennis scoring: love, 15, 30, 40
+- Deuce
+- Advantage
+- Game win conditions
+
+Each rule was implemented following a **Red → Green → Refactor** cycle.
+
+---
+
+## 🏗 Architecture
+
+The project follows a simplified **Clean Architecture + MVVM** approach.
+
+
 TennisKata
-├── Application
-│ ├── AppDelegate
-│ └── SceneDelegate
-│
-├── Domain
-│ ├── TennisGame
-│ ├── TennisGameProtocol
-│ ├── TennisScore
-│ └── TennisScoreFormatter
-│
-├── Presentation
-│ ├── TennisGameViewModel
-│ └── ViewController
-│
+├── Application → App lifecycle
+├── Domain → Pure business logic
+├── Presentation → ViewModel layer
 ├── Resources
-│ └── Assets / Storyboards
-│
 └── SupportingFiles
-└── Info.plist
+
 
 TennisKataTests
 ├── Domain
 │ └── TennisGameTests
-│
 ├── Presentation
 │ └── TennisGameViewModelTests
 
 
-### Testing Principles
-- Tests mirror production structure
-- Domain logic tested independently
-- ViewModel tested without UI
-- Clear, intention-revealing test names
+## 🚀 Running the Project
 
----
-
-## 🚀 How to Run
-
-1. Clone the repository
-2. Open `TennisKata.xcodeproj`
-3. Run tests using:
-⌘ + U
+1. Open `TennisKata.xcodeproj`
+2. Run tests using `⌘ + U`
