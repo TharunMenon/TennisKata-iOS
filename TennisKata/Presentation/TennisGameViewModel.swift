@@ -18,13 +18,25 @@ class TennisGameViewModel:ObservableObject {
     @Published private(set) var player2:String = ""
     
     //MARK: Private Properties
-    private var tennisGame: TennisGame
+    private var tennisGame: TennisGameProtocol
+    private let gameRules: () -> TennisGameProtocol
     
     //MARK:-Initialisation
-    init(player1:String,player2:String){
+    init(player1:String,player2:String,gameRules: (() -> TennisGameProtocol)? = nil) {
         self.player1 = player1
         self.player2 = player2
-        self.tennisGame = TennisGame(player1: player1, player2: player2)
+        
+        //Create the rules for values
+        if let rules = gameRules {
+            self.gameRules = rules
+        } else {
+            self.gameRules = {TennisGame(player1: player1, player2: player2)}
+        }
+        
+        //Create first game instance
+        self.tennisGame = self.gameRules() as! TennisGame
+        
+        //Update score
         updateScore()
     }
     
@@ -42,7 +54,7 @@ class TennisGameViewModel:ObservableObject {
     }
     
     func resetGame(){
-        tennisGame = TennisGame(player1: player1, player2: player2)
+        tennisGame = gameRules()
         updateScore()
     }
     
