@@ -34,7 +34,7 @@ class TennisGameViewModel:ObservableObject {
         }
         
         //Create first game instance
-        self.tennisGame = self.gameRules() as! TennisGame
+        self.tennisGame = self.gameRules()
         
         //Update score
         updateScore()

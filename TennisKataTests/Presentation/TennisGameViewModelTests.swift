@@ -60,4 +60,53 @@ final class TennisGameViewModelTests: XCTestCase {
         XCTAssertEqual(viewModel.currentScore,"Love All")
         XCTAssertFalse(viewModel.isGameFinished)
     }
+    
+    //MARK: Test5 DI with mock
+    func testViewModelWithMock() throws {
+        //Mock game always return "Mock Score"
+        let mockGame = MockTennisGame()
+        let viewModel = TennisGameViewModel(player1: "Arjun",player2: "Anil",gameRules: {mockGame})
+       
+        XCTAssertEqual(viewModel.currentScore,"Mock Score")
+        XCTAssertFalse(viewModel.isGameFinished)
+        
+        //Player scores
+        viewModel.player1Scores()
+        
+        //Mock should be called
+        XCTAssertTrue(mockGame.scorePlayer1called)
+    }
+    
+    //MARK: Test6 DI with mock
+    func testGameFinishedWithMock() throws {
+        //Mock game always return "Mock Score"
+        let mockGame = MockTennisGame()
+        mockGame.mockScore = "Arjun wins the game"
+        let viewModel = TennisGameViewModel(player1: "Arjun",player2: "Anil",gameRules: {mockGame})
+       
+
+        //Detect game finished
+        XCTAssertTrue(viewModel.isGameFinished)
+        XCTAssertEqual(viewModel.currentScore,"Arjun wins the game")
+    }
+}
+
+//MARK:- Mock Objects
+class MockTennisGame:TennisGameProtocol {
+    var scorePlayer1called = false
+    var scorePlayer2called = false
+    var mockScore = "Mock Score"
+    
+    func scorePlayer1() {
+        scorePlayer1called = true
+    }
+    
+    func scorePlayer2() {
+        scorePlayer2called = true
+    }
+    
+    func getScore() -> String {
+        return mockScore
+    }
+    
 }
